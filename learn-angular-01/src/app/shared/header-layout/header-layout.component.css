@@ -7,11 +7,22 @@
     padding: .6rem .6rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 10px 0px;
     align-items: center;
-    
+
 }
 
 .group-header .group-navigation {
     display: flex;
     column-gap: 2rem;
-    
+
+}
+
+
+.group-navigation .btn-navigation {
+    background-image: linear-gradient(to right, #f486f8, #3a0ae4);
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    cursor: pointer;
 }
