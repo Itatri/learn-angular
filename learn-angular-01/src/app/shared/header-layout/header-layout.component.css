@@ -1,0 +1,17 @@
+.header-logo svg {
+    width: 120px;
+}
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    padding: .6rem .6rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 10px 0px;
+    align-items: center;
+    
+}
+
+.group-header .group-navigation {
+    display: flex;
+    column-gap: 2rem;
+    
+}
