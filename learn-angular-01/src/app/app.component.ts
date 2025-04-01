@@ -10,5 +10,30 @@ import { HeaderLayoutComponent } from "./shared/header-layout/header-layout.comp
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'learn-angular-01';
+
+  // Text
+  title =
+  {
+    name:'Hello',
+    old:2024,
+  };
+
+  // Property
+  isDisabled = true;
+
+  // Attributes
+  contentImage = 'Young Tri';
+
+
+  nameBtn = 'Click Me';
+  clickMessage = '';
+
+  handleClickMe(): void{
+    this.clickMessage = 'Click me Hello World';
+  }
+
+  updateField(): void{
+    console.log('Hello World');
+  }
+
 }

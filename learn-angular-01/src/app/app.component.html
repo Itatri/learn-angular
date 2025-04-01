@@ -2,6 +2,20 @@
 
 <main class="main">
     <app-header-layout></app-header-layout>
+    <div> {{ title.name }}</div>
+    <div> {{ title.old + 1}}</div>
+
+    <button [disabled]="isDisabled">Hello Button</button>
+
+    <img src="assets/images/shopping-cart.png" alt="Logo {{contentImage}}">
+
+    <h1>Click is an events</h1>
+    <button (click)="handleClickMe()"> {{nameBtn}}</button>
+    <div>Message : {{clickMessage}}</div>
+
+    <input type="text" (keyup)="updateField()">
+
+
 </main>
 
 
