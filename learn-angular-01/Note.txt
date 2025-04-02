@@ -1,0 +1,15 @@
+### Các loại Directive của Angular
+
+- Component : 
+ + Template HTML 
+ + UI - Component
+
+- Structural :
+ + ngIf, ngFor, ngSwitch
+
+- Attribute : 
+ + ngClass, ngStyle, ....
+ + hidden, disable, ....
+
+### Routing
+

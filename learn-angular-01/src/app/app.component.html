@@ -2,53 +2,7 @@
 
 <main class="main">
     <app-header-layout></app-header-layout>
-    <!-- <div> {{ title.name }}</div>
-    <div> {{ title.old + 1}}</div>
-
-    <button [disabled]="isDisabled">Hello Button</button>
-
-    <img src="assets/images/shopping-cart.png" alt="Logo {{contentImage}}">
-
-    <h1>Click is an events</h1>
-    <button (click)="handleClickMe()"> {{nameBtn}}</button> -->
-    
-    <!-- <div>Message : {{clickMessage}}</div> -->
-
-    <!-- <input type="text" (keyup)="updateField()"> -->
-
-    <!-- <input type="text" [(ngModel)] = "bindingMessage">
-
-    <div> Message : {{bindingMessage}}</div>  -->
-
-    <div class="wrapper-cart">
-        <h1>Shopping Cart</h1>
-
-        <div class="group-cart">
-            <div class="header-cart">
-                <div class="col-1"> Image </div>
-                <div class="col-2"> Name </div>
-                <div class="col-3"> Price </div>
-                <div class="col-4"> Action </div>
-            </div>
-
-            <div class="body-cart">
-                <div class="row-cart">
-                    <div class="col-1"> 
-                        <img width="50px" height="auto" 
-                        src="assets/images/samba.jpg" alt="SambaOG"> 
-                    </div>
-                    <div class="col-2"> Samba OG </div>
-                    <div class="col-3"> 400 $ </div>
-                    <div class="col-4"> 
-                        <div class="btn-main">
-                        <img width="20px" height="auto" 
-                        src="assets/images/trash-bin.png" alt="Delete"> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <router-outlet></router-outlet>
 </main>
 
 
