@@ -1,3 +1,7 @@
+### Đặc điểm
+- Two Way Bindings : luồng dữ liệu 2 chiều ( Template thay đổi -> Logic cũng phải 
+thay đổi )
+
 ### Các loại Directive của Angular
 
 - Component : 
@@ -11,5 +15,29 @@
  + ngClass, ngStyle, ....
  + hidden, disable, ....
 
-### Routing
 
+### Props trong Angular
+- Truyền dữ liệu 1 chiều : Từ component cha đến component con 
+- Không thay đổi được dữ liệu : Component con không được phép chỉnh sửa trực 
+tiếp giá trị Props
+- Hỗ trợ mọi loại dữ liệu Có thể là string, number, object, array, function,...
+
+### Lifecycle
+-------------------------------------------------------------------------------------------------------------------------
+| Phase              | Angular               | VueJS                                                                    |
+-------------------------------------------------------------------------------------------------------------------------
+| Creation           | constructor           |Runs when Angular instantiates the component.                             |
+-------------------------------------------------------------------------------------------------------------------------
+| Change Detection   | ngOnInit              |Runs once after Angular has initialized all the component’s inputs.       |
+|--------------------| ngOnChanges           |Runs every time the component’s inputs have changed.                      |
+|--------------------| ngDoCheck             |Runs every time this component is checked for changes.                    |
+|--------------------| ngAfterContentInit    |Runs once after the component’s content has been initialized.             |
+|--------------------| ngAfterContentChecked |Runs every time this component’s content has been checked for changes.    |
+|--------------------| ngAfterViewInit       |Runs once after the component’s view has been initialized.                |
+|--------------------| ngAfterViewChecked    |Runs every time the component’s view has been checked for changes.        |
+|------------------------------------------------------------------------------------------------------------------------
+| Rendering          | afterNextRender       |Runs once the next time that all components have been rendered to the DOM.|
+|--------------------| afterRender           |Runs every time all components have been rendered to the DOM.             |
+|------------------------------------------------------------------------------------------------------------------------
+| Destroy            | ngOnDestroy           |Runs once before the component is destroyed.                              |
+|------------------------------------------------------------------------------------------------------------------------

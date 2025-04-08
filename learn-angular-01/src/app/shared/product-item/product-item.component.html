@@ -1,0 +1,31 @@
+<div class="group-cart">
+    <div class="header-cart">
+        <div class="col-1"> Image </div>
+        <div class="col-2"> Name </div>
+        <div class="col-3"> Price </div>
+        <div class="col-4"> Action </div>
+    </div>
+
+    <div class="body-cart">
+        <!-- Sử dụng *ngFor ( List Renden ) để lặp qua mảng products hiển thị thông tin sản phẩm -->
+        <div class="row-cart" *ngFor="let product of products">
+            <div class="col-1"> 
+                <a [routerLink] = "['/detail',product.id]">
+                    <img width="50px" height="auto" 
+                src="{{product.image}}" alt="SambaOG"> 
+                </a>
+            </div>
+            <!--  Sử dụng pipe để viết hoa chữ cái đầu tiên của tên sản phẩm -->
+            <div class="col-2"> {{ product.name | uppercase }} </div>
+             <!-- Sử dụng pipe để định dạng tiền tệ -->
+            <div class="col-3"> {{ product.price| currencyPipe}} </div>
+            <div class="col-4"> 
+                <div class="btn-main" (click)="handleDelete(product.id)">
+                <img width="20px" height="auto" 
+                src="assets/images/trash-bin.png" alt="Delete"> 
+                </div>
+            </div>
+        </div>
+    </div>
+    {{totalPrice}}đ
+</div>
