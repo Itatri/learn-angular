@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderLayoutComponent } from "../shared/header-layout/header-layout.component";
 import { FormsModule } from '@angular/forms';
@@ -17,7 +17,7 @@ import { ProductItemComponent } from "../shared/product-item/product-item.compon
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit , DoCheck{
 
   // // Text
   // title =
@@ -85,4 +85,18 @@ export class HomeComponent {
     }
   }
 
+  // Creation Angular
+  constructor()
+  {
+    console.log('Initalize Component');
+  }
+  // ngOnInit() chạy sau khi khởi tạo component ( giao diện đã được hiển thị)
+  ngOnInit(): void // implements OnInit trước khi gọi ngOnInit
+  {
+    console.log('Initalize initialized');
+  }
+
+  ngDoCheck(): void {
+    console.log('Check Component');
+  }
 }
