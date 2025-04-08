@@ -41,3 +41,9 @@ tiếp giá trị Props
 |------------------------------------------------------------------------------------------------------------------------
 | Destroy            | ngOnDestroy           |Runs once before the component is destroyed.                              |
 |------------------------------------------------------------------------------------------------------------------------
+
+
+- ngOnChanges : Sẽ cập nhật và chạy lại nếu props có sự thay đổi - Hàm này sử dụng 
+rất tốt cho Performance - Ưu tiên sử dụng hàm này
+- ngDoCheck : Sẽ chạy lại nếu có bất kì điều gì thay đổi ( state, content, DOM, ...) - Hàm 
+này sử dụng cho những trường hợp đặc biệt - Lưu ý nhớ Destroy khi không sử dụng  
