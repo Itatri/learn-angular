@@ -53,3 +53,8 @@ này sử dụng cho những trường hợp đặc biệt - Lưu ý nhớ Destr
 - Realtime 
 - API 
 - Logic (timeout, interval)
+
+## Observable
+- API ( dữ liệu bất đồng bộ)
+- Behavior
+- Timer ( timeout, interval)
