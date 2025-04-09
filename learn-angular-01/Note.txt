@@ -47,3 +47,9 @@ tiếp giá trị Props
 rất tốt cho Performance - Ưu tiên sử dụng hàm này
 - ngDoCheck : Sẽ chạy lại nếu có bất kì điều gì thay đổi ( state, content, DOM, ...) - Hàm 
 này sử dụng cho những trường hợp đặc biệt - Lưu ý nhớ Destroy khi không sử dụng  
+
+
+### Destruction
+- Realtime 
+- API 
+- Logic (timeout, interval)

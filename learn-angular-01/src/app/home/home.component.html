@@ -6,7 +6,13 @@
         <!-- Sử dụng ngClass để điều kiện hiển thị class active -->
         <!-- <h1 [ngClass]="{'active' : isActive}">Shopping Cart</h1> -->
         <h1>Shopping Cart</h1>
-      
-        <app-product-item [products]="products" (dataEvent)="handleDelete($event)"></app-product-item>
+      <div *ngIf="isVisible">
+        <app-product-item 
+        [products]="products" 
+        (dataEvent)="handleDelete($event)">
+        </app-product-item>
+      </div>
+
+      <button (click)="handleChangeVisible()">Turn on / off Table</button>
     </div>
 
