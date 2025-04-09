@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, Output, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { ProductItems } from '../types/productItem';
@@ -21,7 +21,7 @@ import { EventEmitter } from '@angular/core';
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.css'
 })
-export class ProductItemComponent {
+export class ProductItemComponent implements OnChanges , OnDestroy{
   // Input dữ liệu từ component cha
   @Input() products: ProductItems[] = [];
 
@@ -46,5 +46,15 @@ export class ProductItemComponent {
   //   { id: 2 ,name: 'Nike F1', price: 400000000, image : 'assets/images/nikef1.jpg'}, 
   //   { id: 3 ,name: 'Adidas', price: 500000000, image : 'assets/images/adidas.jpg'}, 
   //   { id: 4 ,name: 'MLB F3', price: 600000000, image : 'assets/images/mlb.png'}, 
-  // ]
+  // ]\
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+      console.log(changes['products'].currentValue);
+      console.log(changes['products'].previousValue);
+  }
+
+  ngOnDestroy(): void {
+    console.log('Component is remove');
+  }
 }
