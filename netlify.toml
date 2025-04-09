@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
   publish = "dist/learn-angular-01/browser"
-  environment = { NODE_OPTIONS = "--max_old_space_size=4096" }
+  environment = { NODE_OPTIONS = "--max_old_space_size=10000" }
 
 [[redirects]]
   from = "/*"
