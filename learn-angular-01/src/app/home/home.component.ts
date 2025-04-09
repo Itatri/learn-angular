@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderLayoutComponent } from "../shared/header-layout/header-layout.component";
 import { FormsModule } from '@angular/forms';
@@ -9,6 +9,9 @@ import { ProductItems } from '../shared/types/productItem';
 import { ProductItemComponent } from "../shared/product-item/product-item.component";
 import { HttpClient } from '@angular/common/http';
 import { provideHttpClient } from '@angular/common/http'; // Import provideHttpClient
+import { BlogService } from '../../services/BlogService';
+import { map, SubscriptionLike } from 'rxjs';  
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +24,7 @@ import { provideHttpClient } from '@angular/common/http'; // Import provideHttpC
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   // // Text
   // title =
@@ -57,6 +60,9 @@ export class HomeComponent implements OnInit {
     this.isVisible = !this.isVisible; 
   }
 
+  // Khởi tạo Subscription để quản lý việc fetch API
+  getBlogApi : Subscription;
+
   // Mảng chứa sản phẩm
   products: ProductItems []  = [
     { 
@@ -87,41 +93,65 @@ export class HomeComponent implements OnInit {
 
   handleDelete = (event: number) =>
   {
-    const productIndex = this.products.findIndex(item => item.id == event);
-    if (productIndex !== -1)
-    {
-      this.products.splice(productIndex, 1);
-    }
+    // const productIndex = this.products.findIndex(item => item.id == event);
+    // if (productIndex !== -1)
+    // {
+    //   this.products.splice(productIndex, 1);
+    // }
 
     this.products = this.products.filter(item => item.id !== event);
-  }
+
+    // Gọi API để xóa, sử dụng event thay vì id
+    this.blogService.deleteBlog(event).subscribe(({data} : any)  => {
+      if (data == 1)
+        {
+            this.products = this.products.filter(item => item.id !== event);
+        } 
+    });
+}
 
   // Creation Angular
-  constructor(private http: HttpClient)
+  constructor(private blogService: BlogService)
   {
-    console.log('Initalize Component');
+    console.log('BlogService Start');
+     this.getBlogApi = new Subscription();
   }
   // ngOnInit() chạy sau khi khởi tạo component ( giao diện đã được hiển thị)
   ngOnInit(): void // implements OnInit trước khi gọi ngOnInit
   {
-    console.log('Initalize initialized');
-
-    // Sử dụng Angular HttpClient để fetch API
-    this.http.get<any>('https://ninedev-api.vercel.app/blogs')
-      .subscribe(({data, message}) => 
+    console.log('ngOnInit start');
+    // Sử dụng Angular HttpClient để fetch API ( không nên để API 
+    // trong component vì không thể tái sử dụng cho các component khác)
+    this.getBlogApi = this.blogService.getBlogs()
+      .pipe(
+        map(({data}) => 
+              data.map((item: any) => {
+                return {
+                 ...item,
+                 name : item.title,
+                 price: Number(item.body),
+                 image : 'assets/images/adidas.jpg'
+                };
+              })
+              // filter product có giá trị lớn hơn 300000
+              .filter(product => product.price > 200000) 
+        )
+      ) 
+      // gọi API từ BlogService.ts
+      .subscribe((res) => 
         {
-          this.products = data.map((item: any) => {
-            return {
-             ...item,
-             name : item.title,
-             price: Number(item.body),
-             image : 'assets/images/adidas.jpg'
-
-            }
-          });
+          this.products = res;
         });
   }
 
+  // Hủy bỏ Subscription khi component bị hủy bỏ và không cần dùng nữa
+  ngOnDestroy(): void {
+    if (this.getBlogApi)
+    {
+      this.getBlogApi.unsubscribe();
+      console.log('getBlogApi unsubscribe');
+    }
+  }
   // ngDoCheck(): void {
   //   console.log('Check Component');
   // }

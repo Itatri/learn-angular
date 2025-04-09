@@ -1,0 +1,34 @@
+h1 {
+    padding: 3rem 0;
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center; 
+ }
+
+ 
+ .wrapper-cart {
+    background-image: linear-gradient(to right, #f486f8, #3a0ae4);
+    height: calc(100vh - 70px);
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    row-gap: .5rem;
+    margin-bottom: 1rem;
+}
+
+.form-control label {
+    font-weight: 600;
+}
+
+.form-control input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0.8rem;
+    border-radius: 4px;
+    background: #ededed;
+    box-sizing: border-box; /* Thêm thuộc tính này */
+}
