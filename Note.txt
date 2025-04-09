@@ -75,3 +75,5 @@ npm install @netlify/angular-runtime
     "build": "ng build --configuration production"
   }
 }
+
+- Buil test trước khi deploy : npm run build
