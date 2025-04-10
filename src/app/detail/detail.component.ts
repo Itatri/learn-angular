@@ -15,9 +15,6 @@ import { BlogService } from '../../services/BlogService';
 })
 export class DetailComponent implements OnInit {
   id = '';
-
-  // Khởi tạo state productItem với kiểu dữ liệu ProductItems 
-  // để lưu trữ thông tin chi tiết sản phẩm
   productItem: ProductItems = {
     id: 0,
     name: '',
@@ -27,18 +24,24 @@ export class DetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogService  // Thêm BlogService vào đây
+    private blogService: BlogService
   ) {
     this.id = String(route.snapshot.paramMap.get('id'));
   }
 
   ngOnInit(): void {
-    this.blogService.detailBlog(+this.id).subscribe(({data}:any) => {
-      this.productItem.id = data.id;
-      this.productItem.image = data.image || 'assets/images/samba.jpg'; // Thêm fallback image
-      this.productItem.name = data.title;
-      this.productItem.price = Number(data.body); // Chuyển đổi sang number
+    this.blogService.detailBlog(+this.id).subscribe({
+      next: ({data}: any) => {
+        if (data) {  // Thêm kiểm tra data tồn tại
+          this.productItem.id = data.id;
+          this.productItem.image = data.image || 'assets/images/samba.jpg';
+          this.productItem.name = data.title;
+          this.productItem.price = Number(data.body);
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching detail:', error);
+      }
     });
-}
-
+  }
 }

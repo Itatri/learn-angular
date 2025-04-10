@@ -76,4 +76,6 @@ npm install @netlify/angular-runtime
   }
 }
 
+### Lệnh build 
 - Buil test trước khi deploy : npm run build
+- Test local trước khi deploy, có thể dùng: npx serve dist/learn-angular-01/browser
