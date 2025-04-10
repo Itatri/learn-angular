@@ -65,30 +65,30 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // Mảng chứa sản phẩm
   products: ProductItems []  = [
-    { 
-      id: 1 , 
-      name: 'Samba OG', 
-      price: 500000000, 
-      image : 'assets/images/samba.jpg'
-    }, 
-    { 
-      id: 2 ,
-      name: 'Nike F1', 
-      price: 400000000, 
-      image : 'assets/images/nikef1.jpg'
-    }, 
-    { 
-      id: 3 
-      ,name: 'Adidas'
-      , price: 500000000
-      , image : 'assets/images/adidas.jpg'
-    }, 
-    { 
-      id: 4 ,
-      name: 'MLB F3', 
-      price: 600000000, 
-      image : 'assets/images/mlb.png'
-    }, 
+    // { 
+    //   id: 1 , 
+    //   name: 'Samba OG', 
+    //   price: 500000000, 
+    //   image : 'assets/images/samba.jpg'
+    // }, 
+    // { 
+    //   id: 2 ,
+    //   name: 'Nike F1', 
+    //   price: 400000000, 
+    //   image : 'assets/images/nikef1.jpg'
+    // }, 
+    // { 
+    //   id: 3 
+    //   ,name: 'Adidas'
+    //   , price: 500000000
+    //   , image : 'assets/images/adidas.jpg'
+    // }, 
+    // { 
+    //   id: 4 ,
+    //   name: 'MLB F3', 
+    //   price: 600000000, 
+    //   image : 'assets/images/mlb.png'
+    // }, 
   ]
 
   handleDelete = (event: number) =>
@@ -119,7 +119,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   // ngOnInit() chạy sau khi khởi tạo component ( giao diện đã được hiển thị)
   ngOnInit(): void // implements OnInit trước khi gọi ngOnInit
   {
-    console.log('ngOnInit start');
+    // console.log('ngOnInit start');
     // Sử dụng Angular HttpClient để fetch API ( không nên để API 
     // trong component vì không thể tái sử dụng cho các component khác)
     this.getBlogApi = this.blogService.getBlogs()
