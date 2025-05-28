@@ -67,8 +67,10 @@ phiên bản 2.2.0 trở lên.
 
 1. Đầu tiên, cài đặt @netlify/angular-runtime :
 npm install @netlify/angular-runtime
+
 2. Tạo file _redirects trong thư mục src với nội dung:
 /* /index.html 200
+
 3. Cập nhật script build trong package.json:
 {
   "scripts": {
