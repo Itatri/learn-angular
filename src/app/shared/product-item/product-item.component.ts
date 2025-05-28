@@ -37,7 +37,7 @@ export class ProductItemComponent implements OnChanges , OnDestroy{
     const sum = this.products.reduce((total,item) => {
       return total + item.price;
     },0);
-    return `Total Price ${sum}`;  // Changed double quotes to backticks
+    return `Total Price :  ${sum}`;  // Changed double quotes to backticks
   }
 
   // // Mảng chứa sản phẩm
