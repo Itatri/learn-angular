@@ -1,5 +1,5 @@
 {
-  "name": "learn-angular-01",
+  "name": "learn-angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:learn-angular-01": "node dist/learn-angular-01/server/server.mjs"
+    "serve:ssr:learn-angular": "node dist/learn-angular/server/server.mjs"
   },
   "private": true,
   "dependencies": {
