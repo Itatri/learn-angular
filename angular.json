@@ -21,12 +21,13 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "favicon.ico",
-                "input": "public",
-                "output": "/"
-              },
+              "src/app-logo.ico",
               "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets/"
+              },
               {
                 "glob": "_redirects",
                 "input": "src",
@@ -92,7 +93,7 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
-                "glob": "favicon.ico",
+                "glob": "app-logo.ico",
                 "input": "public",
                 "output": "/"
               },
